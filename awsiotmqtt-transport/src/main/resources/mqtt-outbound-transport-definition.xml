@@ -1,0 +1,41 @@
+<transport name="MqttOutboundTransport"
+	label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_LBL}" contact="yourname@yourcompany.com"
+	version="10.4.0" domain="com.esri.geoevent.transport.awsiotmqtt.outbound"
+	type="outbound">
+	<description>${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_DESC}</description>
+	<propertyDefinitions>
+		<propertyDefinition propertyName="host"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_HOST_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_HOST_DESC}"
+			propertyType="String" defaultValue="A1OAECNIGB9KXE.iot.us-west-2.amazonaws.com" mandatory="true"
+			readOnly="false" />
+		<propertyDefinition propertyName="port"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_PORT_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_PORT_DESC}"
+			propertyType="Integer" defaultValue="1883" mandatory="true" readOnly="false" />
+			
+		<propertyDefinition propertyName="rootCA"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_ROOTCA_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_ROOTCA_DESC}"
+			propertyType="String" defaultValue="certs/rootCA.pem" mandatory="true"
+			readOnly="false" />		
+			
+		<propertyDefinition propertyName="certificate"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_CERT_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_CERT_DESC}"
+			propertyType="String" defaultValue="certs/cert.pem" mandatory="true"
+			readOnly="false" />
+			
+		<propertyDefinition propertyName="privateKey"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_PRIVATEKEY_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_PRIVATEKEY_DESC}"
+			propertyType="String" defaultValue="certs/private.pem" mandatory="true"
+			readOnly="false" />						
+				
+		<propertyDefinition propertyName="topic"
+			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_TOPIC_LBL}"
+			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_OUT_TOPIC_DESC}"
+			propertyType="String" defaultValue="SBC/test" mandatory="true"
+			readOnly="false" />
+	</propertyDefinitions>
+</transport>
