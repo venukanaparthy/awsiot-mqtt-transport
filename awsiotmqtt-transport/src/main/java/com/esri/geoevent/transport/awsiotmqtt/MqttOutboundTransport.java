@@ -42,8 +42,7 @@ import com.esri.ges.transport.TransportDefinition;
 public class MqttOutboundTransport extends OutboundTransportBase
 {
 
-	private static final BundleLogger	log	= BundleLoggerFactory.getLogger(MqttOutboundTransport.class);
-	private static ClassLoader 			resloader  	= MqttOutboundTransport.class.getClassLoader();
+	private static final BundleLogger	log	= BundleLoggerFactory.getLogger(MqttOutboundTransport.class);	
 	private int												port;
 	private String										host;
 	private String										rootCA;
@@ -95,8 +94,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 	}
 
 	private void connectMqtt() throws MqttException
-	{
-		//String url = "tcp://" + host + ":" + Integer.toString(port);
+	{		
 		String url = "ssl://" + host + ":" + Integer.toString(port);
 		mqttClient = new MqttClient(url, MqttClient.generateClientId(), new MemoryPersistence());
 		connOpts = new MqttConnectOptions();	         
@@ -107,7 +105,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 
 	private void applyProperties() throws Exception
 	{
-		port = 1883; // default
+		port = 8883; // default
 		if (getProperty("port").isValid())
 		{
 			int value = (Integer) getProperty("port").getValue();
@@ -143,7 +141,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 			String value = (String) getProperty("rootCA").getValue();
 			if (!value.trim().equals(""))
 			{
-				rootCA = resloader.getResource(value).getFile();				
+				rootCA = value;				
 			}
 		}
 		
@@ -153,7 +151,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 			String value = (String) getProperty("certificate").getValue();
 			if (!value.trim().equals(""))
 			{
-				cert = resloader.getResource(value).getFile();				
+				cert = value;				
 			}
 		}
 		
@@ -163,7 +161,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 			String value = (String) getProperty("privateKey").getValue();
 			if (!value.trim().equals(""))
 			{
-				privateKey = resloader.getResource(value).getFile();				
+				privateKey = value;				
 			}
 		}
 	}

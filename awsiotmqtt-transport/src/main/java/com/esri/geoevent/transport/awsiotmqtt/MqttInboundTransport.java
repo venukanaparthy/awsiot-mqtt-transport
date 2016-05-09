@@ -45,9 +45,7 @@ import com.esri.ges.transport.TransportDefinition;
 
 public class MqttInboundTransport extends InboundTransportBase implements Runnable
 {
-
-	private static final BundleLogger	log			= BundleLoggerFactory.getLogger(MqttInboundTransport.class);
-	private static ClassLoader resloader 				= MqttInboundTransport.class.getClassLoader();
+	private static final BundleLogger	log			= BundleLoggerFactory.getLogger(MqttInboundTransport.class);	
 	private Thread										thread	= null;
 	private int												port;
 	private String										host;
@@ -98,8 +96,7 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 		{
 			applyProperties();
 			setRunningState(RunningState.STARTED);
-
-			//String url = "tcp://" + host + ":" + Integer.toString(port);
+			
 			String url = "ssl://" + host + ":" + Integer.toString(port);
 			mqttClient = new MqttClient(url, MqttClient.generateClientId(), new MemoryPersistence());
 
@@ -205,8 +202,7 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			String value = (String) getProperty("rootCA").getValue();
 			if (!value.trim().equals(""))
 			{
-				rootCA = value;
-				//rootCA = resloader.getResource(value).getFile();				
+				rootCA = value;						
 			}
 		}
 		
@@ -216,8 +212,7 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			String value = (String) getProperty("certificate").getValue();
 			if (!value.trim().equals(""))
 			{
-				cert = value;
-				//cert = resloader.getResource(value).getFile();				
+				cert = value;				
 			}
 		}
 		
@@ -228,7 +223,7 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			if (!value.trim().equals(""))
 			{
 				privateKey = value;
-				//privateKey = resloader.getResource(value).getFile();				
+						
 			}
 		}
 

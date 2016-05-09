@@ -19,6 +19,9 @@ import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
 
+import com.esri.ges.framework.i18n.BundleLogger;
+import com.esri.ges.framework.i18n.BundleLoggerFactory;
+
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -35,6 +38,8 @@ import java.security.cert.X509Certificate;
 
 public class SslUtil {
     
+   private static final BundleLogger	log			= BundleLoggerFactory.getLogger(SslUtil.class);	
+	
     public static SSLSocketFactory getSocketFactory(final String caCrtFile, final String crtFile, final String keyFile, final String password) {
         try {
 
@@ -117,7 +122,7 @@ public class SslUtil {
             return context.getSocketFactory();
 
         } catch (Exception e) {
-            e.printStackTrace();
+        	log.error("ERROR_GENERATNG_SSL_CONTEXT", e);            
         }
 
         return null;
