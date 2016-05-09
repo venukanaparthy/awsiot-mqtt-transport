@@ -205,7 +205,8 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			String value = (String) getProperty("rootCA").getValue();
 			if (!value.trim().equals(""))
 			{
-				rootCA = resloader.getResource(value).getFile();				
+				rootCA = value;
+				//rootCA = resloader.getResource(value).getFile();				
 			}
 		}
 		
@@ -215,7 +216,8 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			String value = (String) getProperty("certificate").getValue();
 			if (!value.trim().equals(""))
 			{
-				cert = resloader.getResource(value).getFile();				
+				cert = value;
+				//cert = resloader.getResource(value).getFile();				
 			}
 		}
 		
@@ -225,7 +227,8 @@ public class MqttInboundTransport extends InboundTransportBase implements Runnab
 			String value = (String) getProperty("privateKey").getValue();
 			if (!value.trim().equals(""))
 			{
-				privateKey = resloader.getResource(value).getFile();				
+				privateKey = value;
+				//privateKey = resloader.getResource(value).getFile();				
 			}
 		}
 

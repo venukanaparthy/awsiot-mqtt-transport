@@ -18,19 +18,19 @@
 	  	<propertyDefinition propertyName="rootCA"
 			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_ROOTCA_LBL}"
 			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_ROOTCA_DESC}"
-			propertyType="String" defaultValue="certs/rootCA.pem" mandatory="true"
+			propertyType="String" defaultValue="C:/Users/venu4461/rootCA.pem" mandatory="true"
 			readOnly="false" />		
 			
 		<propertyDefinition propertyName="certificate"
 			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_CERT_LBL}"
 			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_CERT_DESC}"
-			propertyType="String" defaultValue="certs/cert.pem" mandatory="true"
+			propertyType="String" defaultValue="C:/Users/venu4461/cert.pem" mandatory="true"
 			readOnly="false" />
 			
 		<propertyDefinition propertyName="privateKey"
 			label="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_PRIVATEKEY_LBL}"
 			description="${com.esri.geoevent.transport.awsiotmqtt-transport.TRANSPORT_IN_PRIVATEKEY_DESC}"
-			propertyType="String" defaultValue="certs/private.pem" mandatory="true"
+			propertyType="String" defaultValue="C:/Users/venu4461/private.pem" mandatory="true"
 			readOnly="false" />						
 			
 		<propertyDefinition propertyName="topic"

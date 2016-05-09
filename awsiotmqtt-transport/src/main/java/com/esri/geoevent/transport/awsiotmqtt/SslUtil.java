@@ -23,7 +23,10 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
+
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.security.KeyPair;
 import java.security.KeyStore;
 import java.security.Security;
@@ -31,9 +34,8 @@ import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 
 public class SslUtil {
-
-    public static SSLSocketFactory getSocketFactory(final String caCrtFile, final String crtFile, final String keyFile,
-                                                    final String password) {
+    
+    public static SSLSocketFactory getSocketFactory(final String caCrtFile, final String crtFile, final String keyFile, final String password) {
         try {
 
             /**
@@ -46,7 +48,7 @@ public class SslUtil {
             /**
              * Load Certificate Authority (CA) certificate
              */
-            PEMParser reader = new PEMParser(new FileReader(caCrtFile));
+            PEMParser reader = new PEMParser(new FileReader(caCrtFile));            
             X509CertificateHolder caCertHolder = (X509CertificateHolder) reader.readObject();
             reader.close();
 
