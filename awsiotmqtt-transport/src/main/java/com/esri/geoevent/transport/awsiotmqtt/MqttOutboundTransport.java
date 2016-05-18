@@ -84,8 +84,7 @@ public class MqttOutboundTransport extends OutboundTransportBase
 
 			byte[] b = new byte[buffer.remaining()];
 			buffer.get(b);
-
-			//mqttClient.publish(topic, b, 2, true);
+			
 			mqttClient.publish(topic, b, 1, false);
 		}
 		catch (Exception e)
